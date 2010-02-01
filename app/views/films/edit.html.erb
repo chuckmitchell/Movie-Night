@@ -16,12 +16,16 @@
     <%= f.text_field :director %>
   </p>
   <p>
+    <%= f.label :released_on %><br />
+    <%= f.date_select :released_on, {:start_year=>1920} %>
+  </p>
+  <p>
     <%= f.label :synopsis %><br />
     <%= f.text_area :synopsis %>
   </p>
   <p>
-    <%= f.label :released_on %><br />
-    <%= f.date_select :released_on %>
+    <%= f.label :imdb_permalink %><br />
+    <%= f.text_field :imdb_permalink %>
   </p>
   <p>
     <%= f.label :suggested_by %><br />

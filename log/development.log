@@ -328,3 +328,260 @@ Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 18:54:33) [GET]
 Rendering template within layouts/films
 Rendering films/new
 Completed in 223ms (View: 213, DB: 0) | 200 OK [http://localhost/films/new]
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (109.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (99.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateFilms (20100131234747)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "films" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "viewing_id" integer, "title" varchar(255), "director" varchar(255), "synopsis" text, "released_on" date, "imdb_permalink" varchar(255), "suggested_by" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100131234747')[0m
+Migrating to CreateViewings (20100131234949)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "viewings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "scheduled_at" datetime, "active" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100131234949')[0m
+Migrating to CreateMembers (20100131235213)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "members" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "password" varchar(255), "email" varchar(255), "active" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100131235213')[0m
+Migrating to AddMembersViewingsJoin (20100201000641)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "members_viewings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer, "viewing_id" integer) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100201000641')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("films")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("members")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("members_viewings")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("viewings")[0m
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:10:18) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 74ms (View: 18, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:13:04) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 60ms (View: 50, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:13:19) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 21ms (View: 16, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:16:15) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 38ms (View: 16, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:16:16) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 19ms (View: 9, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:16:17) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 19ms (View: 9, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:20:00) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:20:01) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 22ms (View: 9, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:20:13) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 27ms (View: 18, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:21:11) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:21:29) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 61ms (View: 9, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:27:59) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 20ms (View: 11, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:28:28) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 19ms (View: 11, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:29:00) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 24ms (View: 17, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#create (for 127.0.0.1 at 2010-01-31 19:30:00) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"HZY6EliMLV/dM4EzcvqRS/SAmVxHDOyhGaJh+CQcV7I=", "film"=>{"suggested_by"=>"Charles", "title"=>"The Abyss", "released_on(1i)"=>"1982", "director"=>"James Cameron", "released_on(2i)"=>"8", "imdb_permalink"=>"http://www.imdb.com/title/tt0096754/", "released_on(3i)"=>"9", "synopsis"=>"A civilian diving team are enlisted to search for a lost nuclear submarine and face danger while encountering an alien aquatic species.", "viewing_id"=>""}}
+  [4;36;1mFilm Create (0.5ms)[0m   [0;1mINSERT INTO "films" ("suggested_by", "created_at", "title", "director", "released_on", "updated_at", "imdb_permalink", "viewing_id", "synopsis") VALUES('Charles', '2010-02-01 00:30:00', 'The Abyss', 'James Cameron', '1982-08-09', '2010-02-01 00:30:00', 'http://www.imdb.com/title/tt0096754/', NULL, 'A civilian diving team are enlisted to search for a lost nuclear submarine and face danger while encountering an alien aquatic species.')[0m
+Redirected to http://localhost:3000/films/1
+Completed in 155ms (DB: 1) | 302 Found [http://localhost/films]
+
+
+Processing FilmsController#show (for 127.0.0.1 at 2010-01-31 19:30:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFilm Load (0.2ms)[0m   [0mSELECT * FROM "films" WHERE ("films"."id" = 1) [0m
+Rendering template within layouts/films
+Rendering films/show
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/films/1]
+
+
+Processing FilmsController#index (for 127.0.0.1 at 2010-01-31 19:30:04) [GET]
+  [4;36;1mFilm Load (0.4ms)[0m   [0;1mSELECT * FROM "films" [0m
+Rendering template within layouts/films
+Rendering films/index
+Completed in 17ms (View: 6, DB: 0) | 200 OK [http://localhost/films]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:30:10) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 21ms (View: 14, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#create (for 127.0.0.1 at 2010-01-31 19:31:45) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"HZY6EliMLV/dM4EzcvqRS/SAmVxHDOyhGaJh+CQcV7I=", "film"=>{"suggested_by"=>"Charles", "title"=>"Tron", "released_on(1i)"=>"1982", "director"=>"Steven Lisberger", "released_on(2i)"=>"7", "imdb_permalink"=>"http://www.imdb.com/title/tt0084827/", "released_on(3i)"=>"9", "synopsis"=>"A hacker is literally abducted into the world of a computer and forced to participate in gladiatorial games where his only chance of escape is with the help of a heroic security program.", "viewing_id"=>""}}
+  [4;35;1mFilm Create (0.2ms)[0m   [0mINSERT INTO "films" ("suggested_by", "created_at", "title", "director", "released_on", "updated_at", "imdb_permalink", "viewing_id", "synopsis") VALUES('Charles', '2010-02-01 00:31:45', 'Tron', 'Steven Lisberger', '1982-07-09', '2010-02-01 00:31:45', 'http://www.imdb.com/title/tt0084827/', NULL, 'A hacker is literally abducted into the world of a computer and forced to participate in gladiatorial games where his only chance of escape is with the help of a heroic security program.')[0m
+Redirected to http://localhost:3000/films/2
+Completed in 94ms (DB: 0) | 302 Found [http://localhost/films]
+
+
+Processing FilmsController#show (for 127.0.0.1 at 2010-01-31 19:31:45) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mFilm Load (0.7ms)[0m   [0;1mSELECT * FROM "films" WHERE ("films"."id" = 2) [0m
+Rendering template within layouts/films
+Rendering films/show
+Completed in 11ms (View: 4, DB: 1) | 200 OK [http://localhost/films/2]
+
+
+Processing FilmsController#index (for 127.0.0.1 at 2010-01-31 19:31:49) [GET]
+  [4;35;1mFilm Load (0.5ms)[0m   [0mSELECT * FROM "films" [0m
+Rendering template within layouts/films
+Rendering films/index
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/films]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:32:47) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 25ms (View: 14, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#create (for 127.0.0.1 at 2010-01-31 19:34:58) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"HZY6EliMLV/dM4EzcvqRS/SAmVxHDOyhGaJh+CQcV7I=", "film"=>{"suggested_by"=>"Rachel Sandwell", "title"=>"Idi Amin", "released_on(1i)"=>"1984", "director"=>"Ivan Reitman", "released_on(2i)"=>"6", "imdb_permalink"=>"http://www.imdb.com/name/nm0024907/", "released_on(3i)"=>"8", "synopsis"=>"Idi Amin Dada Oumee was born in the rural village of Koboko, Uganda, in 1923, a member of the Kakwa tribe. Raised in the isolated farming country of northwestern Uganda, Amin received a scant education which left him functionally illiterate.     Amin seized power in a coup on 1/25/71 while [President] Obote was out of the country, and had Obote's supporters executed. Human rights groups say from 100,000 to 500,000 people were murdered during Amin's eight-year rule.", "viewing_id"=>""}}
+  [4;36;1mFilm Create (0.6ms)[0m   [0;1mINSERT INTO "films" ("suggested_by", "created_at", "title", "director", "released_on", "updated_at", "imdb_permalink", "viewing_id", "synopsis") VALUES('Rachel Sandwell', '2010-02-01 00:34:58', 'Idi Amin', 'Ivan Reitman', '1984-06-08', '2010-02-01 00:34:58', 'http://www.imdb.com/name/nm0024907/', NULL, 'Idi Amin Dada Oumee was born in the rural village of Koboko, Uganda, in 1923, a member of the Kakwa tribe. Raised in the isolated farming country of northwestern Uganda, Amin received a scant education which left him functionally illiterate. Amin seized power in a coup on 1/25/71 while [President] Obote was out of the country, and had Obote''s supporters executed. Human rights groups say from 100,000 to 500,000 people were murdered during Amin''s eight-year rule.')[0m
+Redirected to http://localhost:3000/films/3
+Completed in 125ms (DB: 1) | 302 Found [http://localhost/films]
+
+
+Processing FilmsController#show (for 127.0.0.1 at 2010-01-31 19:34:58) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mFilm Load (0.3ms)[0m   [0mSELECT * FROM "films" WHERE ("films"."id" = 3) [0m
+Rendering template within layouts/films
+Rendering films/show
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/films/3]
+
+
+Processing FilmsController#index (for 127.0.0.1 at 2010-01-31 19:35:04) [GET]
+  [4;36;1mFilm Load (0.9ms)[0m   [0;1mSELECT * FROM "films" [0m
+Rendering template within layouts/films
+Rendering films/index
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://localhost/films]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:35:10) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 23ms (View: 16, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#edit (for 127.0.0.1 at 2010-01-31 19:35:45) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mFilm Load (0.2ms)[0m   [0mSELECT * FROM "films" WHERE ("films"."id" = 3) [0m
+Rendering template within layouts/films
+Rendering films/edit
+Completed in 30ms (View: 18, DB: 0) | 200 OK [http://localhost/films/3/edit]
+
+
+Processing FilmsController#update (for 127.0.0.1 at 2010-01-31 19:35:51) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"HZY6EliMLV/dM4EzcvqRS/SAmVxHDOyhGaJh+CQcV7I=", "id"=>"3", "film"=>{"suggested_by"=>"Rachel Sandwell", "title"=>"Idi Amin", "released_on(1i)"=>"1984", "director"=>"", "released_on(2i)"=>"6", "imdb_permalink"=>"http://www.imdb.com/name/nm0024907/", "released_on(3i)"=>"8", "synopsis"=>"Idi Amin Dada Oumee was born in the rural village of Koboko, Uganda, in 1923, a member of the Kakwa tribe. Raised in the isolated farming country of northwestern Uganda, Amin received a scant education which left him functionally illiterate.     Amin seized power in a coup on 1/25/71 while [President] Obote was out of the country, and had Obote's supporters executed. Human rights groups say from 100,000 to 500,000 people were murdered during Amin's eight-year rule.", "viewing_id"=>""}}
+  [4;36;1mFilm Load (0.2ms)[0m   [0;1mSELECT * FROM "films" WHERE ("films"."id" = 3) [0m
+  [4;35;1mFilm Update (0.2ms)[0m   [0mUPDATE "films" SET "updated_at" = '2010-02-01 00:35:51', "director" = '' WHERE "id" = 3[0m
+Redirected to http://localhost:3000/films/3
+Completed in 62ms (DB: 0) | 302 Found [http://localhost/films/3]
+
+
+Processing FilmsController#show (for 127.0.0.1 at 2010-01-31 19:35:51) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mFilm Load (0.3ms)[0m   [0;1mSELECT * FROM "films" WHERE ("films"."id" = 3) [0m
+Rendering template within layouts/films
+Rendering films/show
+Completed in 14ms (View: 5, DB: 0) | 200 OK [http://localhost/films/3]
+
+
+Processing FilmsController#index (for 127.0.0.1 at 2010-01-31 19:35:53) [GET]
+  [4;35;1mFilm Load (1.1ms)[0m   [0mSELECT * FROM "films" [0m
+Rendering template within layouts/films
+Rendering films/index
+Completed in 62ms (View: 14, DB: 1) | 200 OK [http://localhost/films]
+
+
+Processing FilmsController#new (for 127.0.0.1 at 2010-01-31 19:35:57) [GET]
+Rendering template within layouts/films
+Rendering films/new
+Completed in 21ms (View: 14, DB: 0) | 200 OK [http://localhost/films/new]
+
+
+Processing FilmsController#create (for 127.0.0.1 at 2010-01-31 19:37:14) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"HZY6EliMLV/dM4EzcvqRS/SAmVxHDOyhGaJh+CQcV7I=", "film"=>{"suggested_by"=>"Jacob Romero", "title"=>"Ghostbusters", "released_on(1i)"=>"1984", "director"=>"Ivan Reitman", "released_on(2i)"=>"6", "imdb_permalink"=>"http://www.imdb.com/title/tt0087332/", "released_on(3i)"=>"8", "synopsis"=>"Three unemployed parapsychology professors set up shop as a unique ghost removal service", "viewing_id"=>""}}
+  [4;36;1mFilm Create (0.2ms)[0m   [0;1mINSERT INTO "films" ("suggested_by", "created_at", "title", "director", "released_on", "updated_at", "imdb_permalink", "viewing_id", "synopsis") VALUES('Jacob Romero', '2010-02-01 00:37:14', 'Ghostbusters', 'Ivan Reitman', '1984-06-08', '2010-02-01 00:37:14', 'http://www.imdb.com/title/tt0087332/', NULL, 'Three unemployed parapsychology professors set up shop as a unique ghost removal service')[0m
+Redirected to http://localhost:3000/films/4
+Completed in 114ms (DB: 0) | 302 Found [http://localhost/films]
+
+
+Processing FilmsController#show (for 127.0.0.1 at 2010-01-31 19:37:15) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mFilm Load (0.3ms)[0m   [0mSELECT * FROM "films" WHERE ("films"."id" = 4) [0m
+Rendering template within layouts/films
+Rendering films/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/films/4]

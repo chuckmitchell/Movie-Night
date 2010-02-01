@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100131235213) do
+ActiveRecord::Schema.define(:version => 20100201000641) do
 
   create_table "films", :force => true do |t|
     t.integer  "viewing_id"
@@ -17,17 +17,24 @@ ActiveRecord::Schema.define(:version => 20100131235213) do
     t.string   "director"
     t.text     "synopsis"
     t.date     "released_on"
+    t.string   "imdb_permalink"
     t.string   "suggested_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "viewers", :force => true do |t|
+  create_table "members", :force => true do |t|
     t.string   "name"
+    t.string   "password"
     t.string   "email"
     t.string   "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "members_viewings", :force => true do |t|
+    t.integer "member_id"
+    t.integer "viewing_id"
   end
 
   create_table "viewings", :force => true do |t|
