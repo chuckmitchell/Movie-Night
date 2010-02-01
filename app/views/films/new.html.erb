@@ -1,0 +1,35 @@
+<h1>New film</h1>
+
+<% form_for(@film) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :viewing_id %><br />
+    <%= f.text_field :viewing_id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :director %><br />
+    <%= f.text_field :director %>
+  </p>
+  <p>
+    <%= f.label :synopsis %><br />
+    <%= f.text_area :synopsis %>
+  </p>
+  <p>
+    <%= f.label :released_on %><br />
+    <%= f.date_select :released_on %>
+  </p>
+  <p>
+    <%= f.label :suggested_by %><br />
+    <%= f.text_field :suggested_by %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', films_path %>

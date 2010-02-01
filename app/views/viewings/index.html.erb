@@ -1,0 +1,24 @@
+<h1>Listing viewings</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Scheduled at</th>
+    <th>Active</th>
+  </tr>
+
+<% @viewings.each do |viewing| %>
+  <tr>
+    <td><%=h viewing.title %></td>
+    <td><%=h viewing.scheduled_at %></td>
+    <td><%=h viewing.active %></td>
+    <td><%= link_to 'Show', viewing %></td>
+    <td><%= link_to 'Edit', edit_viewing_path(viewing) %></td>
+    <td><%= link_to 'Destroy', viewing, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New viewing', new_viewing_path %>

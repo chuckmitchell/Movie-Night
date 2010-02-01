@@ -1,0 +1,33 @@
+<p>
+  <b>Viewing:</b>
+  <%=h @film.viewing_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @film.title %>
+</p>
+
+<p>
+  <b>Director:</b>
+  <%=h @film.director %>
+</p>
+
+<p>
+  <b>Synopsis:</b>
+  <%=h @film.synopsis %>
+</p>
+
+<p>
+  <b>Released on:</b>
+  <%=h @film.released_on %>
+</p>
+
+<p>
+  <b>Suggested by:</b>
+  <%=h @film.suggested_by %>
+</p>
+
+
+<%= link_to 'Edit', edit_film_path(@film) %> |
+<%= link_to 'Back', films_path %>

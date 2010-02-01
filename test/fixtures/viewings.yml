@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  scheduled_at: 2010-01-31 18:49:49
+  active: false
+
+two:
+  title: MyString
+  scheduled_at: 2010-01-31 18:49:49
+  active: false

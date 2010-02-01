@@ -1,0 +1,18 @@
+<p>
+  <b>Title:</b>
+  <%=h @viewing.title %>
+</p>
+
+<p>
+  <b>Scheduled at:</b>
+  <%=h @viewing.scheduled_at %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%=h @viewing.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_viewing_path(@viewing) %> |
+<%= link_to 'Back', viewings_path %>
