@@ -2,8 +2,9 @@ class CreateViewings < ActiveRecord::Migration
   def self.up
     create_table :viewings do |t|
       t.string :title
+      t.integer :film_id, :null=>false
       t.datetime :scheduled_at
-      t.boolean :active
+      t.boolean :active, :default=>true
 
       t.timestamps
     end

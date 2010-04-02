@@ -1,4 +1,4 @@
 class Viewing < ActiveRecord::Base
-  has_many_and_belongs_to :members
-  has_many :films
+  has_and_belongs_to_many :members
+  belongs_to :film
 end

@@ -9,16 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100201000641) do
+ActiveRecord::Schema.define(:version => 20100216115018) do
 
   create_table "films", :force => true do |t|
-    t.integer  "viewing_id"
     t.string   "title"
     t.string   "director"
     t.text     "synopsis"
     t.date     "released_on"
     t.string   "imdb_permalink"
     t.string   "suggested_by"
+    t.boolean  "active",         :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invitations", :force => true do |t|
+    t.string   "sender_email"
+    t.string   "invitee_email"
+    t.text     "message"
+    t.datetime "sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,20 +36,31 @@ ActiveRecord::Schema.define(:version => 20100201000641) do
     t.string   "name"
     t.string   "password"
     t.string   "email"
-    t.string   "active"
+    t.boolean  "active",     :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "members_viewings", :force => true do |t|
-    t.integer "member_id"
-    t.integer "viewing_id"
+  create_table "members_viewings", :id => false, :force => true do |t|
+    t.integer "member_id",  :null => false
+    t.integer "viewing_id", :null => false
+  end
+
+  create_table "requests", :force => true do |t|
+    t.string   "requester_name"
+    t.string   "requester_email"
+    t.string   "title"
+    t.string   "link"
+    t.boolean  "new",             :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "viewings", :force => true do |t|
     t.string   "title"
+    t.integer  "film_id",                        :null => false
     t.datetime "scheduled_at"
-    t.boolean  "active"
+    t.boolean  "active",       :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

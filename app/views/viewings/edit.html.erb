@@ -8,6 +8,11 @@
     <%= f.text_field :title %>
   </p>
   <p>
+    <%= f.label :film %><br />
+    <%#= f.select("viewing", "film_id", options_from_collection_for_select(Film.all, 'id', 'title'), { :include_blank=> true }) %>  </p>
+          select("post", "person_id", Person.all.collect {|p| [ p.name, p.id ] }, { :include_blank => true })
+
+  <p>
     <%= f.label :scheduled_at %><br />
     <%= f.datetime_select :scheduled_at %>
   </p>

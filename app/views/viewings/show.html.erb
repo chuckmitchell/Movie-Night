@@ -1,6 +1,6 @@
 <p>
   <b>Title:</b>
-  <%=h @viewing.title %>
+  <%=h @viewing.title.nil? ? @viewing.film.title : @viewing.title %>
 </p>
 
 <p>

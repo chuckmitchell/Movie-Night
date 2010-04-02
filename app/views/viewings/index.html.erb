@@ -9,7 +9,7 @@
 
 <% @viewings.each do |viewing| %>
   <tr>
-    <td><%=h viewing.title %></td>
+    <td><%=h viewing.title.nil? ? viewing.film.title : viewing.title %></td>
     <td><%=h viewing.scheduled_at %></td>
     <td><%=h viewing.active %></td>
     <td><%= link_to 'Show', viewing %></td>

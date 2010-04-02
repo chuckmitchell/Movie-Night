@@ -8,6 +8,10 @@
     <%= f.text_field :title %>
   </p>
   <p>
+    <%= f.label :film %><br />
+    <%= f.select "viewing", "film_id", Film.all.collect{|film| [film.title, film.id]}, {:include_blank=>true} %>
+  </p>
+  <p>
     <%= f.label :scheduled_at %><br />
     <%= f.datetime_select :scheduled_at %>
   </p>
