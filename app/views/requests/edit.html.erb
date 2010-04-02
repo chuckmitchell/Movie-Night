@@ -1,0 +1,32 @@
+<h1>Editing request</h1>
+
+<% form_for(@request) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :requester_name %><br />
+    <%= f.text_field :requester_name %>
+  </p>
+  <p>
+    <%= f.label :requester_email %><br />
+    <%= f.text_field :requester_email %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :link %><br />
+    <%= f.text_field :link %>
+  </p>
+  <p>
+    <%= f.label :new %><br />
+    <%= f.check_box :new %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @request %> |
+<%= link_to 'Back', requests_path %>

@@ -1,0 +1,23 @@
+<p>
+  <b>Sender email:</b>
+  <%=h @invitation.sender_email %>
+</p>
+
+<p>
+  <b>Invitee email:</b>
+  <%=h @invitation.invitee_email %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%=h @invitation.message %>
+</p>
+
+<p>
+  <b>Sent at:</b>
+  <%=h @invitation.sent_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
+<%= link_to 'Back', invitations_path %>

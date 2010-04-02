@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sender_email: MyString
+  invitee_email: MyString
+  message: MyText
+  sent_at: 2010-02-16 06:50:18
+
+two:
+  sender_email: MyString
+  invitee_email: MyString
+  message: MyText
+  sent_at: 2010-02-16 06:50:18

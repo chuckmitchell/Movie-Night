@@ -1,0 +1,28 @@
+<p>
+  <b>Requester name:</b>
+  <%=h @request.requester_name %>
+</p>
+
+<p>
+  <b>Requester email:</b>
+  <%=h @request.requester_email %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @request.title %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%=h @request.link %>
+</p>
+
+<p>
+  <b>New:</b>
+  <%=h @request.new %>
+</p>
+
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

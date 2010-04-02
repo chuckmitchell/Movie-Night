@@ -1,0 +1,23 @@
+<div style="display:block;" id="invite_a_friend_lb">
+  <h1>Invite a friend</h1>
+  <p>Please enter a friend's email <span class="tiny">(cool people only, no movie talkers or mooches.)</span></p>
+	<% form_for(@invitation) do |f| %>
+	  <%= f.error_messages %>
+	
+	  <p>
+	    <%= f.label :sender_email %><br />
+	    <%= f.text_field :sender_email %>
+	  </p>
+	  <p>
+	    <%= f.label :invitee_email %><br />
+	    <%= f.text_field :invitee_email %>
+	  </p>
+	  <p>
+	    <%= f.label :message %><br />
+	    <%= f.text_area :message %>
+	  </p>
+	  <p>
+	    <%= f.submit 'Send' %>
+	  </p>
+	<% end %>  
+</div>
