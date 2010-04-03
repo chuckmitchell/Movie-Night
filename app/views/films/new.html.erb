@@ -1,6 +1,6 @@
 <h1>New film</h1>
 
-<% form_for(@film) do |f| %>
+<% form_for :film, @film, :url=>film_path, :html=>{:multipart=>true}  do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -18,6 +18,11 @@
   <p>
     <%= f.label :synopsis %><br />
     <%= f.text_area :synopsis %>
+  </p>
+
+  <p>
+    <%= f.label :poster %><br />
+    <%= f.file_field :poster %>
   </p>
 
   <p>
