@@ -33,13 +33,9 @@
       <div class="roundedcornr_content">
         <h1>Previous Showings</h1>
         <p>These are some of the hot titles we've watched recently:</p>
-        <ul>
-        <% @recent_viewings.each do |viewing| %>
-        <li><%= "#{link_to viewing.film.title, viewing.film.imdb_permalink},
-                 #{viewing.film.released_on.year} by #{viewing.film.director} 
-                 <em>(last shown: #{viewing.scheduled_at.to_date.to_s(:short)})</em>"%></li>
-        <% end %>
-        </ul>
+        <dl>
+	  <% render :partial=>'films/film', :collection=>@recent_viewings %>
+        </dl>
       </div>
    <div class="roundedcornr_bottom"><div></div></div>
 </div>
