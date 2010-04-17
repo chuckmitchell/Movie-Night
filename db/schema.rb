@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100216115018) do
+ActiveRecord::Schema.define(:version => 20100403192026) do
 
   create_table "films", :force => true do |t|
     t.string   "title"
@@ -18,9 +18,13 @@ ActiveRecord::Schema.define(:version => 20100216115018) do
     t.date     "released_on"
     t.string   "imdb_permalink"
     t.string   "suggested_by"
-    t.boolean  "active",         :default => true
+    t.boolean  "active",              :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "poster_file_name"
+    t.string   "poster_content_type"
+    t.integer  "poster_file_size"
+    t.datetime "poster_updated_at"
   end
 
   create_table "invitations", :force => true do |t|
