@@ -8,8 +8,17 @@
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :film %><br />
-    <%= f.select "viewing", "film_id", Film.all.collect{|film| [film.title, film.id]}, {:include_blank=>true} %>
+    <%= f.label :viewing_film_ids %><br />
+    <%#= select_tag 'viewing[film_ids]', options_from_collection_for_select(Film.all, 'id', 'title'), { :multiple => true, :size =>15, :id => "model_name_states" } %></p>
+
+      <%= collection_select :viewing, :film_ids,
+        Film.find(:all), :id, :title, {},
+        :multiple => true,
+        :size=>15,        
+        :name => 'viewing[film_ids][]' %>
+
+    
+    <%#= f.select "viewing", "films", Film.all.collect{|film| [film.title, film.id]}, {:include_blank=>true} %>
   </p>
   <p>
     <%= f.label :scheduled_at %><br />

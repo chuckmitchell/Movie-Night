@@ -1,45 +1,64 @@
 <div class="roundedcornr_box">
-   <div class="roundedcornr_top"><div></div></div>
-      <div class="roundedcornr_content">
-        <h1>Movie Night at the Loft</h1>
-        <p>Charles, Jeremy Lise and KC are pleased to present (semi) regular viewings of popular and great films.</p>
-      </div>
-   <div class="roundedcornr_bottom"><div></div></div>
+  <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+    <h1>Movie Night at the Loft</h1>
+    <p>Charles, Jeremy Lise and Amanda are pleased to present (semi) regular viewings of popular and great films.</p>
+  </div>
+  <div class="roundedcornr_bottom"><div></div></div>
 </div>
 
-<% if !@showing_today.nil? %>
+<% if @showing_today.nil? %>
 <div class="roundedcornr_box left">
-   <div class="roundedcornr_top"><div></div></div>
-      <div class="roundedcornr_content">
-        <h1>Showing Tonight</h1>
-          <p>You're in luck! You can come <strong>today</strong> and watch <strong><%= @showing_today.film.title %></strong>
-					   at <strong><%= @showing_today.scheduled_at.to_s(:time) %></strong>.<br />
-					   <% if Time.now < @showing_today.scheduled_at %>
-						   <br />
-							 That's in <strong><%= distance_of_time_in_words(Time.now, @showing_today.scheduled_at) %></strong>. Don't forget to bring beer.
-				     <% elsif (Time.now > @showing_today.scheduled_at) and (Time.now - @showing_today.scheduled_at) < 2.hours  %>
-						   <br />
-							 Better hurry! You're late and Charles hates that. You should also stop for some beer to smooth things over.
-						 <% end %>
-					</p>
-					<p><a href="javascript:void(0);">Invite a friend!</a></p>
-      </div>
-   <div class="roundedcornr_bottom"><div></div></div>
+  <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+    <h1>Showing Tonight</h1>
+      <p>You're in luck! You can come <strong>today</strong> and watch <strong><%= @showing_today.film.title %></strong>
+          at <strong><%= @showing_today.scheduled_at.to_s(:time) %></strong>.<br />
+          <% if Time.now < @showing_today.scheduled_at %>
+            <br />
+            That's in <strong><%= distance_of_time_in_words(Time.now, @showing_today.scheduled_at) %></strong>. Don't forget to bring beer.
+          <% elsif (Time.now > @showing_today.scheduled_at) and (Time.now - @showing_today.scheduled_at) < 2.hours  %>
+            <br />
+            Better hurry! You're late and Charles hates that. You should stop for some beer to smooth things over.
+          <% end %>
+      </p>
+      <p><a href="javascript:void(0);">Invite a friend!</a></p>
+  </div>
+  <div class="roundedcornr_bottom"><div></div></div>
 </div>
 <% end %>
 
-<div class="roundedcornr_box left">
-   <div class="roundedcornr_top"><div></div></div>
-      <div class="roundedcornr_content">
-        <h1>Previous Showings</h1>
-        <p>These are some of the hot titles we've watched recently:</p>
-        <dl>
-	  <% render :partial=>'films/film', :collection=>@recent_viewings %>
-        </dl>
-      </div>
-   <div class="roundedcornr_bottom"><div></div></div>
+<div class="roundedcornr_box">
+  <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+    <h1>Upcoming Showings</h1>
+    <p>Here's what's coming next:</p>
+    <div class="films">
+      <% @upcoming_viewings.each do |viewing| %>
+        <%= render :partial=>'films/film', :collection=>viewing.films %>
+      <% end %>
+      <div style="clear:both"></div>
+    </div>
+  </div>
+  <div class="roundedcornr_bottom"><div></div></div>
 </div>
 
-<%= render :partial=>"suggestion" %>
+<div class="roundedcornr_box">
+  <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+    <h1>Previous Showings</h1>
+    <p>These are some of the hot titles we've watched recently:</p>
+    <div class="films">
+      <% @recent_viewings.each do |viewing| %>
+        <%= render :partial=>'films/film', :collection=>viewing.films %>
+      <% end %>
+      <div style="clear:both"></div>
+    </div>
+  </div>
+  <div class="roundedcornr_bottom"><div></div></div>
+</div>
 
-<%= render :partial=>"invite_a_friend" %>
+
+
+
+<%#= render :partial=>"invite_a_friend" %>

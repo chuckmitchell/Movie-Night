@@ -1,5 +1,7 @@
 class Request < ActiveRecord::Base
 
-  validates_presence_of     :requester_name, :requester_email, :title
-
+  belongs_to :film  
+  validates_presence_of     :requester_name, :requester_email, :imdb_permalink
+  
+  
 end

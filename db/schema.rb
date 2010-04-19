@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100403192026) do
+ActiveRecord::Schema.define(:version => 20100417213807) do
 
   create_table "films", :force => true do |t|
     t.string   "title"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(:version => 20100403192026) do
     t.datetime "poster_updated_at"
   end
 
+  create_table "films_viewings", :id => false, :force => true do |t|
+    t.integer "film_id"
+    t.integer "viewing_id"
+  end
+
   create_table "invitations", :force => true do |t|
     t.string   "sender_email"
     t.string   "invitee_email"
@@ -37,9 +42,9 @@ ActiveRecord::Schema.define(:version => 20100403192026) do
   end
 
   create_table "members", :force => true do |t|
-    t.string   "name"
-    t.string   "password"
-    t.string   "email"
+    t.string   "firstname"
+    t.string   "lastname",                     :null => false
+    t.string   "email",                        :null => false
     t.boolean  "active",     :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -51,10 +56,10 @@ ActiveRecord::Schema.define(:version => 20100403192026) do
   end
 
   create_table "requests", :force => true do |t|
+    t.integer  "film_id"
     t.string   "requester_name"
     t.string   "requester_email"
-    t.string   "title"
-    t.string   "link"
+    t.string   "imdb_permalink"
     t.boolean  "new",             :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -62,7 +67,6 @@ ActiveRecord::Schema.define(:version => 20100403192026) do
 
   create_table "viewings", :force => true do |t|
     t.string   "title"
-    t.integer  "film_id",                        :null => false
     t.datetime "scheduled_at"
     t.boolean  "active",       :default => true
     t.datetime "created_at"

@@ -1,6 +1,9 @@
 class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.xml
+  
+  #layout :requests, :except=>[:preview_imdb]
+  
   def index
     @requests = Request.all
 
@@ -8,6 +11,25 @@ class RequestsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @requests }
     end
+  end
+  
+  def imdb_preview
+    @imdb_scraper = IMDBScraper.new(params['link'])    
+    @requester_name = params['requester_name']
+    @requester_email = params['requester_email']
+    render :layout=>false
+  end
+  
+  def imdb_confirm
+    @url = params['imdb_link']
+    @name = params['requester_name']
+    @email = params['requester_email']
+    
+    film = Film.find(:first, :conditions=>['imdb_permalink = ?',@url]);
+    @found = true if film
+    film ||=  Film.createFromIMDB(@url)
+    request = Request.new(:film_id=>film.id, :requester_name=>@name, :requester_email=>@email, :imdb_permalink=>@url)
+    request.save
   end
 
   # GET /requests/1

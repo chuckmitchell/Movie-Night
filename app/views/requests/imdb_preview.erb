@@ -1,0 +1,21 @@
+<div class="film_large">
+  <%= image_tag(@imdb_scraper.poster_uri, :alt=>@imdb_scraper.title) %>
+  <em><%= @imdb_scraper.title %></em><br />
+  <%= @imdb_scraper.director %><br />
+    <p><%= truncate(@imdb_scraper.synopsis, :length=>300) %></p>
+
+    <%= button_to_remote "This is it! please save my request.", 
+                         :url=>{:controller=>:requests,
+                                :action=>"imdb_confirm", 
+                                :imdb_link=>@imdb_scraper.url,
+                                :requester_name=>@requester_name,
+                                :requester_email=>@requester_email,                                
+                            },
+                         :loading=>"$J('imdb_saving').slideDown();",
+                         :update=>'imdb_film'
+    %>
+    
+    <p>If not, make sure you have the correct imdb link.<br />
+       eg: http://www.imdb.com/title/tt0071544/</p>
+
+</div>

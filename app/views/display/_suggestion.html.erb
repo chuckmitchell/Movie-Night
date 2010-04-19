@@ -1,32 +1,43 @@
-<div style="display:none;" id="suggestion_lb">
-  <h1>Request a film</h1>
-  <p>Please make a suggestion for our team of professional film reviewers</p>
-	<% form_for(@request) do |f| %>
-	  <%= f.error_messages %>
-	
+<div style="display:none;" id="suggestion_lb" class="lb">
+  <h1>Requests for future viewings</h1>
+  <p>Please make a suggestion for our professional review team</p>
+	<% form_remote_tag :url => {:controller=>:requests, :action=>'imdb_preview'},
+                     :update=>'imdb_film',
+                     :loading=>"$J('#imdb_loader').slideDown()",
+                     :success=>"$J('#imdb_loader').slideUp();$J('#imdb_film').slideDown()" do  -%>
+
+
+
+
 	  <p>
-	    <%= f.label :requester_name %><br />
-	    <%= f.text_field :requester_name %>
+	    <%= label_tag :requester_name, "Your Name" %>
+	    <%= text_field_tag :requester_name %>
 	  </p>
 	  <p>
-	    <%= f.label :requester_email %><br />
-	    <%= f.text_field :requester_email %>
+	    <%= label_tag :requester_email, "Your email" %>
+	    <%= text_field_tag :requester_email %>
 	  </p>
 	  <p>
-	    <%= f.label :title %><br />
-	    <%= f.text_field :title %>
+	    <%= label_tag :link, "IMDB Link" %>
+	    <%= text_field_tag :link %>
 	  </p>
 	  <p>
-	    <%= f.label :link %><br />
-	    <%= f.text_field :link %>
-	  </p>
-	  <p>
-	    <%= f.label :new %><br />
-	    <%= f.check_box :new %>
-	  </p>
-	  <p>
-	    <%= f.submit 'Create' %>
+	    <%= submit_tag 'Submit' %>
 	  </p>
 	<% end %>
 	
+  <div style="display:none" id="imdb_loader">
+    <img src="/images/loading.gif" alt="loading..." />
+    <h3>Loading IMDB preview...</h3>
+  </div>
+  
+  <div style="display:none" id="imdb_saving">
+    <img src="/images/loading.gif" alt="Saving..." />
+    <h3>Saving info from IMDB...</h3>
+  </div>
+  
+
+  <div style="display:none" id="imdb_film">
+  </div>
+  
 </div>

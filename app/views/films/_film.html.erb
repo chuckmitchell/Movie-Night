@@ -1,3 +1,6 @@
-<dt><%= "#{link_to film.title, film.imdb_permalink}" %></dt>
-  <dd><%= "#{film.released_on.year} by #{film.director} last shown: #{film.viewings.last.scheduled_at.to_date.to_s(:short)}" %></dd>
-</dt>
+<div class="film">
+  <%= link_to image_tag(film.poster.url, :alt=>film.title), film.imdb_permalink %><br />
+  <em><%= "#{link_to film.title, film.imdb_permalink}" %></em><br />
+  <%= "#{film.director}<br />
+  Scheduled viewing: #{film.viewings.last.scheduled_at.strftime("%b %d")}" %>
+</div>

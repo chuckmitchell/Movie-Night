@@ -10,8 +10,15 @@
 	
 	
   <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'prototype' %>
   <%= javascript_include_tag 'jquery-1.4.1' %>
 	<%= javascript_include_tag 'jquery.blockUI.js' %>
+
+  <script type="text/javascript" language="Javascript"> 
+    var $J = jQuery.noConflict();
+  </script>
+
+  
 	
 </head>
 <body>
@@ -43,6 +50,9 @@
     pageTracker._trackPageview();
   } catch(err) {}
 </script>
+
+
+<%= render :partial=>"/display/suggestion" %>
 
 </body>
 </html>

@@ -1,9 +1,9 @@
 class CreateMembers < ActiveRecord::Migration
   def self.up
     create_table :members do |t|
-      t.string :name
-      t.string :password
-      t.string :email
+      t.string :firstname
+      t.string :lastname, :null=>false
+      t.string :email, :null=>false
       t.boolean :active, :default=>true
 
       t.timestamps
