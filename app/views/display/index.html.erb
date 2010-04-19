@@ -12,7 +12,10 @@
   <div class="roundedcornr_top"><div></div></div>
   <div class="roundedcornr_content">
     <h1>Showing Tonight</h1>
-      <p>You're in luck! You can come <strong>today</strong> and watch <strong><%= @showing_today.film.title %></strong>
+      <p>You're in luck! You can come <strong>today</strong> and watch 
+          <% @showing_today.films.each do |film| %>
+            <strong><%= film.title %></strong>
+          <% end %>
           at <strong><%= @showing_today.scheduled_at.to_s(:time) %></strong>.<br />
           <% if Time.now < @showing_today.scheduled_at %>
             <br />

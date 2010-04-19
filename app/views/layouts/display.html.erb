@@ -1,18 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta charset="utf-8" />
+  <meta description="View what movies are showing at Charles Mitchell's Casgrain loft." />
   <title>Movie Nights @ the Loft: 5333 Casgrain</title>
   <%#= stylesheet_link_tag 'reset' %>
   <%= stylesheet_link_tag 'movies' %>
 	
 	
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'prototype' %>
-  <%= javascript_include_tag 'jquery-1.4.1' %>
-	<%= javascript_include_tag 'jquery.blockUI.js' %>
+
 
   <script type="text/javascript" language="Javascript"> 
     var $J = jQuery.noConflict();
@@ -23,36 +20,40 @@
 </head>
 <body>
 
-<div id="left_pane">
-	<div class="roundedcornr_box">
-	   <div class="roundedcornr_top"><div></div></div>
-	      <div class="roundedcornr_content">
-          <h2><a href="javascript:void(0);" onclick="suggestion_lb();">Suggest a film</a></h2>
-	      </div>
-	   <div class="roundedcornr_bottom"><div></div></div>
-	</div>
-</div>
+  <div id="left_pane">
+    <div class="roundedcornr_box">
+      <div class="roundedcornr_top"><div></div></div>
+          <div class="roundedcornr_content">
+            <h2><a href="javascript:void(0);" onclick="suggestion_lb();">Suggest a film</a></h2>
+          </div>
+      <div class="roundedcornr_bottom"><div></div></div>
+    </div>
+  </div>
 
-<p style="color: green"><%= flash[:notice] %></p>
-
-
-<div id="right_pane">
-  <%= yield %>
-</div>
-
-<script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-  try {
-    var pageTracker = _gat._getTracker("UA-10697311-1");
-    pageTracker._trackPageview();
-  } catch(err) {}
-</script>
+  <p style="color: green"><%= flash[:notice] %></p>
 
 
-<%= render :partial=>"/display/suggestion" %>
+  <div id="right_pane">
+    <%= yield %>
+  </div>
 
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    try {
+      var pageTracker = _gat._getTracker("UA-10697311-1");
+      pageTracker._trackPageview();
+    } catch(err) {}
+  </script>
+
+
+  <%= render :partial=>"/display/suggestion" %>
+
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'prototype' %>
+  <%= javascript_include_tag 'jquery-1.4.1' %>
+  <%= javascript_include_tag 'jquery.blockUI.js' %>
 </body>
 </html>
