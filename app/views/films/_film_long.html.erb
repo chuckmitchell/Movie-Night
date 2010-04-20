@@ -1,0 +1,6 @@
+<div class="film_long">
+  <%= link_to image_tag(film.poster.url, :alt=>film.title), :url=>film.imdb_permalink %>
+  <em><%= link_to film.title, :url=>film.imdb_permalink %></em><br />
+  <%= "#{film.director}<br />
+    <p>#{film.synopsis}</p>" %>
+</div>

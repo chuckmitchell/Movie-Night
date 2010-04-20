@@ -11,7 +11,8 @@
                                 :requester_name=>@requester_name,
                                 :requester_email=>@requester_email,                                
                             },
-                         :loading=>"$J('imdb_saving').slideDown();",
+                         :loading=>"$J('#imdb_saving').slideDown();",
+                         :success=>"$J('#imdb_saving').slideUp();",
                          :update=>'imdb_film'
     %>
     

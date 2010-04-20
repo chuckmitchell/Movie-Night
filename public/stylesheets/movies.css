@@ -12,6 +12,15 @@ div#right_pane > div {
   margin-bottom: 5px;
 }
 
+div.film_long {
+ width:100%;
+ margin: 5px;
+}
+div.film_long > a {
+  float: left;
+  margin-right: 9px;
+}
+
 div.films {
   padding: 0px 15px;
   margin: 10px 0px;

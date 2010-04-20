@@ -7,20 +7,20 @@
   <div class="roundedcornr_bottom"><div></div></div>
 </div>
 
-<% if !@showing_today.nil? %>
+<% if !@showing_today.nil? and Time.now.in_time_zone < @showing_today.scheduled_at + 4.hours %>
 <div class="roundedcornr_box left">
   <div class="roundedcornr_top"><div></div></div>
   <div class="roundedcornr_content">
     <h1>Showing Tonight</h1>
-      <p>You're in luck! You can come <strong>today</strong> and watch 
-          <% @showing_today.films.each do |film| %>
-            <strong><%= film.title %></strong>
-          <% end %>
-          at <strong><%= @showing_today.scheduled_at.to_s(:time) %></strong>.<br />
-          <% if Time.now < @showing_today.scheduled_at %>
+      <p>You're in luck! You can come <strong>today</strong> and watch a film or two at <strong><%= @showing_today.scheduled_at.to_s(:time) %></strong>.<br />
+          <% if Time.now.in_time_zone < @showing_today.scheduled_at %>
             <br />
+              <%= render :partial=>'films/film_long', :collection=>@showing_today.films, :as=>:film %>
+    
+
+
             That's in <strong><%= distance_of_time_in_words(Time.now, @showing_today.scheduled_at) %></strong>. Don't forget to bring beer.
-          <% elsif (Time.now > @showing_today.scheduled_at) and (Time.now - @showing_today.scheduled_at) < 2.hours  %>
+          <% elsif (Time.now.in_time_zone > @showing_today.scheduled_at) and (Time.now.in_time_zone - @showing_today.scheduled_at) < 4.hours  %>
             <br />
             Better hurry! You're late and Charles hates that. You should stop for some beer to smooth things over.
           <% end %>
@@ -31,6 +31,7 @@
 </div>
 <% end %>
 
+<% if !@upcoming_viewings.empty? %>
 <div class="roundedcornr_box">
   <div class="roundedcornr_top"><div></div></div>
   <div class="roundedcornr_content">
@@ -45,6 +46,7 @@
   </div>
   <div class="roundedcornr_bottom"><div></div></div>
 </div>
+<% end %>
 
 <div class="roundedcornr_box">
   <div class="roundedcornr_top"><div></div></div>
