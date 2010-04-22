@@ -23,12 +23,12 @@ config.action_view.cache_template_loading            = true
 
 # Disable delivery errors, bad email addresses will be ignored
 config.action_mailer.delivery_method = :smtp
-# config.action_mailer.raise_delivery_errors = false
-ActionMailer::Base.server_settings = {
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.smtp_settings = {
      :address        => "mail.movies.squall.ca" ,
      :port           => 587                       ,
      :domain         => "movies.squall.ca"      ,
-     :authentication => :charles                    ,
+     :authentication => "login"                    ,
      :user_name      => "noreply@movies.squall.ca"                ,
      :password       => "1lastchance"                ,
 }

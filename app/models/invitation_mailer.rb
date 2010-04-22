@@ -1,19 +1,10 @@
 class InvitationMailer < ActionMailer::Base
   
 
-  def new(sent_at = Time.now)
-    subject    'InvitationMailer#new'
-    recipients ''
-    from       ''
-    sent_on    sent_at
-    
-    body       :greeting => 'Hi,'
-  end
-
   def reminder(sent_at = Time.now)
     subject    'InvitationMailer#reminder'
-    recipients ''
-    from       ''
+    recipients 'chuckmitchell@gmail.com'
+    from       'noreply@movies.squall.ca'
     sent_on    sent_at
     
     body       :greeting => 'Hi,'
