@@ -1,0 +1,6 @@
+<p>Oops... you have some errors in what you're giving us.</p>
+<ul style="color: red">
+  <% flash[:error].each do |error| -%>
+      <li><%= error %></li>
+  <% end -%>
+</ul>
