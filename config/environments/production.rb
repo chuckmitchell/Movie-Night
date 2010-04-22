@@ -22,7 +22,17 @@ config.action_view.cache_template_loading            = true
 # config.action_controller.asset_host = "http://assets.example.com"
 
 # Disable delivery errors, bad email addresses will be ignored
+config.action_mailer.delivery_method = :smtp
 # config.action_mailer.raise_delivery_errors = false
-
+ActionMailer::Base.server_settings = {
+     :address        => "mail.movies.squall.ca" ,
+     :port           => 587                       ,
+     :domain         => "movies.squall.ca"      ,
+     :authentication => :charles                    ,
+     :user_name      => "noreply@movies.squall.ca"                ,
+     :password       => "1lastchance"                ,
+}
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.default_charset = "utf-8"
 # Enable threaded mode
 # config.threadsafe!

@@ -1,0 +1,3 @@
+InvitationMailer#thankYou
+
+Find me in app/views/invitation_mailer/thankYou.erb

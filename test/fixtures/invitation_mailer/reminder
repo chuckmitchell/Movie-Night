@@ -1,0 +1,3 @@
+InvitationMailer#reminder
+
+Find me in app/views/invitation_mailer/reminder.erb
