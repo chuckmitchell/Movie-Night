@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.xml
   
-  #layout :requests, :except=>[:preview_imdb]
+  layout :requests, :except=>[:imdb_preview, :imdb_confirm]
   
   def index
     @requests = Request.all
@@ -14,10 +14,16 @@ class RequestsController < ApplicationController
   end
   
   def imdb_preview
-    @imdb_scraper = IMDBScraper.new(params['link'])    
     @requester_name = params['requester_name']
     @requester_email = params['requester_email']
-    render :layout=>false
+    @link = params['link']
+    @request = Request.new(:requester_name=>@requester_name, :requester_email=>@requester_email, :imdb_permalink=>@link)
+    if !@request.valid? 
+      flash[:error] = @request.errors.map{|error| error.join(" ").sub("_", " ")}
+      render :partial=>'display/form_errors'
+    else  
+      @imdb_scraper = IMDBScraper.new(@link)
+    end
   end
   
   def imdb_confirm
@@ -29,7 +35,6 @@ class RequestsController < ApplicationController
     @found = true if film
     film ||=  Film.createFromIMDB(@url)
     request = Request.new(:film_id=>film.id, :requester_name=>@name, :requester_email=>@email, :imdb_permalink=>@url)
-    request.save
   end
 
   # GET /requests/1

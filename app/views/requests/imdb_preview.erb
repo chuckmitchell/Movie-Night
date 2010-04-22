@@ -2,6 +2,7 @@
   <%= image_tag(@imdb_scraper.poster_uri, :alt=>@imdb_scraper.title) %>
   <em><%= @imdb_scraper.title %></em><br />
   <%= @imdb_scraper.director %><br />
+    <p style="color: red"><%= flash[:error] %></p>
     <p><%= truncate(@imdb_scraper.synopsis, :length=>300) %></p>
 
     <%= button_to_remote "This is it! please save my request.", 

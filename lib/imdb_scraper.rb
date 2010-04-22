@@ -1,4 +1,9 @@
 class IMDBScraper
+  
+  
+  
+  @@url_regex = /http:\/\/www.imdb.com\/title\/.{9}\//ix
+  
   #uncomment the next line if you installed hpricot from the gem
   #require 'rubygems'
   require 'hpricot'
@@ -6,6 +11,7 @@ class IMDBScraper
 
   def initialize(url)
     @url = url;
+    raise Exception::ArgumentError, "Url is not to imdb." unless @url.match @@url_regex
     @hp = Hpricot(open(@url))
   end
 
